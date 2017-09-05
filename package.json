@@ -1,0 +1,71 @@
+{
+  "name": "lacle-front",
+  "productName": "lacle-front",
+  "version": "0.0.21",
+  "description": "My Electron application description",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": "romain",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {},
+      "electronWinstallerConfig": {
+        "name": "lacle"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "lacle"
+      }
+    }
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "electron-compile": "^6.4.0",
+    "electron-devtools-installer": "^2.2.0",
+    "interact": "0.0.3",
+    "material-ui": "^0.17.4",
+    "moment": "^2.18.1",
+    "node-schedule": "^1.2.1",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-calendar-timeline": "git://github.com/eksavoy/react-calendar-timeline.git#dev",
+    "react-dom": "^15.5.4",
+    "react-grid-system": "^2.9.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-loading-overlay": "^0.2.4",
+    "react-notification-system": "^0.2.13",
+    "react-redux": "^5.0.4",
+    "react-router-redux": "^4.0.8",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "electron-prebuilt-compile": "1.6.2"
+  }
+}

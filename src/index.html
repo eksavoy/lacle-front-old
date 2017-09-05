@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../node_modules/react-calendar-timeline/modules/lib/Timeline.css" rel="stylesheet" type="text/css"/>
+    <link href="res/css/index.css" rel="stylesheet" type="text/css">
+</head>
+<body style="overflow: hidden; background-color: rgba(0,0,0,0); margin: 0">
+<div id="App"></div>
+
+</body>
+<script type="text/jsx">
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import {AppContainer} from 'react-hot-loader';
+    import {Provider} from 'react-redux';
+
+    import moment from 'moment';
+    moment.locale('fr');
+
+    import injectTapEventPlugin from 'react-tap-event-plugin';
+    injectTapEventPlugin();
+
+    import configureStore from './store'
+    const store = configureStore();
+
+    const render = () => {
+        const App = require('./app').default;
+        ReactDOM.render(<AppContainer><Provider
+                store={store}><App /></Provider></AppContainer>, document.getElementById('App'));
+    }
+
+    render();
+    if (module.hot) {
+        module.hot.accept(render);
+    }
+</script>
+</html>

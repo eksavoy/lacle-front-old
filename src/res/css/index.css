@@ -1,0 +1,52 @@
+.react-calendar-timeline .rct-sidebar .rct-sidebar-header {
+    background: #b48456;
+}
+
+.react-calendar-timeline .rct-header .rct-label-group {
+    background: #b48456;
+}
+
+.react-calendar-timeline .rct-items .rct-item.selected{
+    background: rgba(33, 163, 255, 0.42);
+    border: 1px solid #1A6FB3;
+}
+
+.react-calendar-timeline .rct-items .rct-item.lesson-suspend {
+    background: rgba(255, 67, 26, 0.81);
+    border: 1px solid #ff0509;
+}
+
+.react-calendar-timeline .rct-items .rct-item.selected.lesson-suspend {
+    background: rgba(255, 67, 26, 0.38);
+    border: 1px solid #ff0509;
+}
+
+.react-calendar-timeline .rct-items .rct-item.lesson-done {
+    background: rgba(86, 255, 16, 0.81);
+    border: 1px solid rgba(74, 211, 16, 0.81);
+}
+
+.react-calendar-timeline .rct-items .rct-item.selected.lesson-done {
+    background: rgba(86, 255, 16, 0.26);
+    border: 1px solid rgba(74, 211, 16, 0.81);
+}
+
+.react-calendar-timeline .rct-items .rct-item.student-present {
+    background: rgb(255, 195, 20);
+    border: 1px solid rgb(255, 176, 25);
+}
+
+.react-calendar-timeline .rct-items .rct-item.selected.student-present {
+    background: rgba(255, 255, 23, 0.26);
+    border: 1px solid rgba(255, 255, 23, 0.81);
+}
+
+.react-calendar-timeline .rct-items .rct-item.professor-present {
+    background: rgb(223, 82, 255);
+    border: 1px solid rgb(255, 63, 238);
+}
+
+.react-calendar-timeline .rct-items .rct-item.selected.professor-present {
+    background: rgba(223, 82, 255, 0.26);
+    border: 1px solid rgba(223, 82, 255, 0.81);
+}
