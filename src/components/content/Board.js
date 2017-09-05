@@ -144,7 +144,7 @@ class Board extends Component {
       this.state.items.push({
         id: lesson.id,
         group: lesson.room.id,
-        title: (lesson.note != null || lesson.note != "") ? `[NOTE] ${lesson.student.name} / ${lesson.teacher.name}` : `${lesson.student.name} / ${lesson.teacher.name}`,
+        title: (lesson.note != null && lesson.note != "") ? `[NOTE] ${lesson.student.name} / ${lesson.teacher.name}` : `${lesson.student.name} / ${lesson.teacher.name}`,
         start_time: moment(lesson.startDate).valueOf(),
         end_time: moment(lesson.endDate).valueOf(),
         canMove: this.props.auth.token == '' ? false : true,
