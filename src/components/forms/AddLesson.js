@@ -13,7 +13,7 @@ import {connect} from 'react-redux';
 import {load as loadCourse} from '../../actions/Course';
 import {load as loadTeacher} from '../../actions/Teacher';
 import {load as loadStudent} from '../../actions/Student';
-import {add as addLesson, update as updateLesson} from '../../actions/Lesson';
+import {add as addLesson, update as updateLesson, deleteLesson as deleteLessons} from '../../actions/Lesson';
 import {Col, Container, Row} from 'react-grid-system';
 import {students} from "../../initialState/Students";
 
@@ -116,7 +116,6 @@ class AddLesson extends Component {
     render() {
         var moreAction = [];
         var state = [];
-        var replaceButton = [];
         if (this.props.lesson != undefined) {
             if (this.state.lesson.state == 0) {
 
@@ -132,7 +131,11 @@ class AddLesson extends Component {
                 onTouchTap={this.update.bind(this)}
                 secondary={true}
                 key="update"
-            />);
+            />,
+                <FlatButton label="Supprimer"
+                onTouchTap={this.delete.bind(this)}
+                secondary={true}
+                key="delete"/>);
             state.push([
                     <DefaultSelect useTo="Apprenant status" data={this.state.studentState}
                                    changeFunc={this.onChangeStudentState.bind(this)}
@@ -264,6 +267,10 @@ class AddLesson extends Component {
         this.props.UpdateLesson(this.props.auth.token, this.state.lessonOld);
         this.props.closeFunc();
     }
+    delete(){
+        this.props.DeleteLesson(this.props.auth.token, this.state.lesson);
+        this.props.closeFunc();
+    }
 
     onChangeRepetition(event, value) {
         if (!Number.isNaN(Number(value))) {
@@ -353,7 +360,8 @@ function mapDispatchToProps(dispatch) {
         LoadTeachers: bindActionCreators(loadTeacher, dispatch),
         LoadStudents: bindActionCreators(loadStudent, dispatch),
         AddLessons: bindActionCreators(addLesson, dispatch),
-        UpdateLesson: bindActionCreators(updateLesson, dispatch)
+        UpdateLesson: bindActionCreators(updateLesson, dispatch),
+        DeleteLesson: bindActionCreators(deleteLessons, dispatch)
     };
 }
 

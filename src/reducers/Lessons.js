@@ -4,7 +4,7 @@
 
 import {
   GET_ALL_LESSONS_UNSUCCESS, GET_ALL_LESSONS_SUCCESS, ADD_LESSON_SUCCESS,
-  UPDATE_LESSON_SUCCESS
+  UPDATE_LESSON_SUCCESS, DELETE_LESSON_SUCCESS
 } from '../constants/actions';
 import * as INITIAL_STATE from '../initialState/Lessons';
 
@@ -30,6 +30,14 @@ export default function (state = INITIAL_STATE.lessons, action) {
       var newState = Object.assign({}, state);
       var index = newState.data.findIndex((lesson) => {return lesson.id === action.lesson.id});
       newState.data[index] = action.lesson;
+      return newState;
+    case DELETE_LESSON_SUCCESS:
+      var newState = [];
+      state.data.forEach(lesson => {
+        if(lesson.id != action.id){
+          newState.push(lesson);
+        }
+      });
       return newState;
     default:
       return state;

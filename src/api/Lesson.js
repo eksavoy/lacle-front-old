@@ -6,7 +6,7 @@ import Default from "./Default";
 import {LESSON_PATH, API_URL} from "../constants/api";
 import axios from 'axios';
 
-class Teacher extends Default {
+class Lesson extends Default {
     constructor(){
         super();
         this.path = `${LESSON_PATH}`;
@@ -19,4 +19,4 @@ class Teacher extends Default {
     }
 }
 
-export default Teacher;
+export default Lesson;

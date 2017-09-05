@@ -33,6 +33,18 @@ class Default {
             .then(res => { return res.data})
             .catch(error => { throw error });
     }
+
+    delete(authToken, object){
+        var config = {
+            headers: {
+                'Authorization': `Basic ${authToken}`
+            }
+        }
+
+        return axios.delete(`${API_URL}/${this.path}/${object.id}`, config)
+            .then(res => {return res.data})
+            .catch(error => {throw error});
+    }
 }
 
 export default Default;

@@ -4,13 +4,13 @@
 
 import {
     GET_ALL_LESSONS_SUCCESS, GET_ALL_LESSONS_UNSUCCESS, ADD_LESSON_SUCCESS, ADD_LESSON_UNSUCCESS,
-    UPDATE_LESSON_UNSUCCESS, UPDATE_LESSON_SUCCESS
+    UPDATE_LESSON_UNSUCCESS, UPDATE_LESSON_SUCCESS, DELETE_LESSON_SUCCESS, DELETE_LESSON_UNSUCCESS
 } from '../constants/actions';
 import LessonsApi from '../api/Lesson';
 import {API_CALL_WRONG} from '../constants/Errors';
 import * as notification from './Notification';
 import * as auth from './Auth';
-import {RESSOURCE_ADDED} from "../constants/messages";
+import {RESSOURCE_ADDED, RESSOURCE_DELETED} from "../constants/messages";
 
 const api = new LessonsApi();
 
@@ -78,7 +78,6 @@ export function update(authToken, lesson){
     return function (dispatch) {
         return api.update(authToken, lesson)
             .then(res => {
-                // dispatch(load());
                 dispatch(auth.updateLastActionTime());
                 dispatch(notification.addNotificationSuccess(RESSOURCE_ADDED, 'success'))
                 dispatch(updateSuccess(res))
@@ -89,5 +88,28 @@ export function update(authToken, lesson){
                 dispatch(updateUnsuccess());
             })
 
+    }
+}
+
+function deleteSuccess(id) {
+    return {type: DELETE_LESSON_SUCCESS, id: id};
+}
+
+function deleteUnsuccess() {
+    return {type: DELETE_LESSON_UNSUCCESS};
+}
+
+export function deleteLesson(authToken, lesson){
+    return function (dispatch) {
+        return api.delete(authToken, lesson)
+            .then(res => {
+                dispatch(auth.updateLastActionTime());
+                dispatch(notification.addNotificationSuccess(RESSOURCE_DELETED, 'success'));
+                dispatch(deleteSuccess(lesson.id));
+            })
+            .catch(error => {
+                dispatch(notification.addNotificationSuccess(API_CALL_WRONG, 'error'));
+                dispatch(deleteUnsuccess());
+            })
     }
 }
