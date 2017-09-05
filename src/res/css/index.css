@@ -22,31 +22,21 @@
 }
 
 .react-calendar-timeline .rct-items .rct-item.lesson-done {
-    background: rgba(86, 255, 16, 0.81);
-    border: 1px solid rgba(74, 211, 16, 0.81);
+    background: rgba(53, 138, 14, 0.81);
+    border: 1px solid rgba(25, 73, 5, 0.81);
 }
 
 .react-calendar-timeline .rct-items .rct-item.selected.lesson-done {
     background: rgba(86, 255, 16, 0.26);
-    border: 1px solid rgba(74, 211, 16, 0.81);
+    border: 1px solid rgba(45, 106, 23, 0.96);
 }
 
-.react-calendar-timeline .rct-items .rct-item.student-present {
-    background: rgb(255, 195, 20);
-    border: 1px solid rgb(255, 176, 25);
-}
-
-.react-calendar-timeline .rct-items .rct-item.selected.student-present {
-    background: rgba(255, 255, 23, 0.26);
-    border: 1px solid rgba(255, 255, 23, 0.81);
-}
-
-.react-calendar-timeline .rct-items .rct-item.professor-present {
+.react-calendar-timeline .rct-items .rct-item.present {
     background: rgb(223, 82, 255);
-    border: 1px solid rgb(255, 63, 238);
+    border: 1px solid rgb(107, 27, 92);
 }
 
-.react-calendar-timeline .rct-items .rct-item.selected.professor-present {
+.react-calendar-timeline .rct-items .rct-item.selected.present {
     background: rgba(223, 82, 255, 0.26);
-    border: 1px solid rgba(223, 82, 255, 0.81);
+    border: 1px solid rgba(50, 17, 59, 0.81);
 }

@@ -144,13 +144,13 @@ class Board extends Component {
       this.state.items.push({
         id: lesson.id,
         group: lesson.room.id,
-        title: `${lesson.teacher.name} / ${lesson.student.name}`,
+        title: (lesson.note != null || lesson.note != "") ? `[NOTE] ${lesson.student.name} / ${lesson.teacher.name}` : `${lesson.student.name} / ${lesson.teacher.name}`,
         start_time: moment(lesson.startDate).valueOf(),
         end_time: moment(lesson.endDate).valueOf(),
         canMove: this.props.auth.token == '' ? false : true,
         canChangeGroup: this.props.auth.token == '' ? false : true,
         canResize: false,
-        className: lesson.state == 'Suspend' ? 'lesson-suspend' : ((lesson.studentState == 'P') && (lesson.professorState == 'P')) ? 'lesson-done' : (lesson.studentState == 'P') ? 'student-present' : (lesson.professorState == 'P') ? 'professor-present' : ''
+        className: lesson.state == 'Suspend' ? 'lesson-suspend' : ((lesson.studentState == 'P') && (lesson.professorState == 'P')) ? 'lesson-done' : (lesson.studentState == 'P' || lesson.professorState == 'P') ? 'present' : ''
       });
     });
   }

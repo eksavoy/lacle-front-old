@@ -43,6 +43,7 @@
     "axios": "^0.16.1",
     "electron-compile": "^6.4.0",
     "electron-devtools-installer": "^2.2.0",
+    "electron-forge": "^4.0.1",
     "interact": "0.0.3",
     "material-ui": "^0.17.4",
     "moment": "^2.18.1",
