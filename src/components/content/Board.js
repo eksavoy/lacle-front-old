@@ -197,7 +197,7 @@ class Board extends Component {
                   itemTouchSendsClick={true}
                   onItemDoubleClick={this.onItemDoubleClick.bind(this)}
                   fixedHeader="fixed"
-                  stackItems={false}
+                  stackItems={true}
         />
         <Lesson room={this.state.popupLesson.currentRoom} time={this.state.popupLesson.currentTime}
                 open={this.state.popupLesson.open}
