@@ -29,12 +29,17 @@ class Default extends Component{
     };
 
     render() {
+        const customContentStyle = {
+            height: '100%',
+            maxHeight: 'none',
+        };
         this.content = this.setContent();
         return(
             <Dialog
                 open={this.props.open}
                 actions={this.actions}
                 modal={true}
+                contentStyle={customContentStyle}
             >
                 {this.content}
             </Dialog>

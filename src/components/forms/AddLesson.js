@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import {FlatButton, Subheader, TimePicker, TextField} from 'material-ui';
+import {FlatButton, Subheader, TimePicker, TextField, RaisedButton} from 'material-ui';
 import DefaultSelect from './DefaultSelect';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -15,7 +15,6 @@ import {load as loadTeacher} from '../../actions/Teacher';
 import {load as loadStudent} from '../../actions/Student';
 import {add as addLesson, update as updateLesson, deleteLesson as deleteLessons} from '../../actions/Lesson';
 import {Col, Container, Row} from 'react-grid-system';
-import {students} from "../../initialState/Students";
 
 class AddLesson extends Component {
 
@@ -113,7 +112,11 @@ class AddLesson extends Component {
         }
     }
 
+
     render() {
+        const style = {
+            margin: 12,
+        };
         var moreAction = [];
         var state = [];
         if (this.props.lesson != undefined) {
@@ -121,21 +124,25 @@ class AddLesson extends Component {
 
                 Object.assign(this.state.lessonOld, this.state.lesson);
             }
-            moreAction.push(<FlatButton
-                label="Remplacer"
-                onTouchTap={this.replace.bind(this)}
-                secondary={true}
-                key="replace"
-            />, <FlatButton
-                label="Mettre à jour"
-                onTouchTap={this.update.bind(this)}
-                secondary={true}
-                key="update"
-            />,
-                <FlatButton label="Supprimer"
-                onTouchTap={this.delete.bind(this)}
-                secondary={true}
-                key="delete"/>);
+            moreAction.push(<RaisedButton
+                    label="Remplacer"
+                    onTouchTap={this.replace.bind(this)}
+                    key="replace"
+                    style={style}
+                />, <RaisedButton
+                    label="Changer"
+                    onTouchTap={this.update.bind(this)}
+                    primary={true}
+                    key="update"
+                    style={style}
+                />,
+                <RaisedButton label="Supprimer"
+                              onTouchTap={this.delete.bind(this)}
+                              secondary={true}
+                              key="delete"
+                              style={style}
+                />
+            );
             state.push([
                     <DefaultSelect useTo="Apprenant status" data={this.state.studentState}
                                    changeFunc={this.onChangeStudentState.bind(this)}
@@ -153,16 +160,19 @@ class AddLesson extends Component {
                                        return state.desc == this.state.lesson.state;
                                    })}/>,
                     <TextField defaultValue={this.state.lesson.note || 'Note'}
-                               onChange={this.onChangeNote.bind(this)}/>
+                               onChange={this.onChangeNote.bind(this)} key="Note"/>
                 ]
             );
         } else {
-            moreAction.push(<FlatButton
-                label="Envoyer"
-                primary={true}
-                onTouchTap={this.submit.bind(this)}
-                key="send"
-            />);
+            moreAction.push(
+                <TextField id="weekRepition" hintText="Entrer le nombre de semaine"
+                           onChange={this.onChangeRepetition.bind(this)} key="Repetition"/>,
+                <FlatButton
+                    label="Envoyer"
+                    primary={true}
+                    onTouchTap={this.submit.bind(this)}
+                    key="send"
+                />);
         }
         return (
             <Container>
@@ -205,8 +215,6 @@ class AddLesson extends Component {
                         })}
                                        changeFunc={this.onChangeTeacher.bind(this)}
                                        defaultValue={this.state.lesson.teacher}/>
-                        <TextField id="weekRepition" hintText="Entrer le nombre de semaine"
-                                   onChange={this.onChangeRepetition.bind(this)}/>
                     </Col>
                     <Col sm={4}>
                         {state}
@@ -270,7 +278,8 @@ class AddLesson extends Component {
         this.props.UpdateLesson(this.props.auth.token, this.state.lessonOld);
         this.props.closeFunc();
     }
-    delete(){
+
+    delete() {
         this.props.DeleteLesson(this.props.auth.token, this.state.lesson);
         this.props.closeFunc();
     }
