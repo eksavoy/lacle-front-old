@@ -161,7 +161,6 @@ class AddLesson extends Component {
                 label="Envoyer"
                 primary={true}
                 onTouchTap={this.submit.bind(this)}
-                keyboardFocused={true}
                 key="send"
             />);
         }
@@ -170,7 +169,7 @@ class AddLesson extends Component {
                 <h1>Cours : Salle {this.state.lesson.room.number}
                     pour {moment(this.state.lesson.startDate).format('LL')}</h1>
                 <Row>
-                    <Col sm={4}>
+                    <Col sm={5}>
                         <Subheader>Heure de début</Subheader>
                         <TimePicker
                             defaultTime={moment(this.state.lesson.startDate).toDate()}
@@ -209,12 +208,16 @@ class AddLesson extends Component {
                         <TextField id="weekRepition" hintText="Entrer le nombre de semaine"
                                    onChange={this.onChangeRepetition.bind(this)}/>
                     </Col>
-                    <Col sm={2}/>
                     <Col sm={4}>
                         {state}
                     </Col>
+                    <Col sm={2}>
+                    </Col>
+                    <Col sm={2}>
+                        {moreAction}
+                    </Col>
                 </Row>
-                {moreAction}
+
             </Container>
         );
     }
