@@ -1,13 +1,14 @@
 {
   "name": "lacle-front",
   "productName": "lacle-front",
-  "version": "0.0.21",
+  "version": "1.4",
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
@@ -15,12 +16,17 @@
   "license": "MIT",
   "config": {
     "forge": {
+      "electronReleaseServer": {
+        "baseUrl": "http://electron-server.poptech-devs.ovh/",
+        "username": "admin",
+        "password": "password"
+      },
       "make_targets": {
         "win32": [
           "squirrel"
         ],
         "darwin": [
-          "zip"
+          "dmg"
         ],
         "linux": [
           "deb",

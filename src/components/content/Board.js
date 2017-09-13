@@ -143,7 +143,7 @@ class Board extends Component {
     lessonMap.filter((lesson) => {return lesson.state != 'Delete'}).map((lesson) => {
       this.state.items.push({
         id: lesson.id,
-        group: lesson.room.id,
+        group: lesson.room.number,
         title: (lesson.note != null && lesson.note != "") ? `[NOTE] ${lesson.student.name} / ${lesson.teacher.name}` : `${lesson.student.name} / ${lesson.teacher.name}`,
         start_time: moment(lesson.startDate).valueOf(),
         end_time: moment(lesson.endDate).valueOf(),
