@@ -18,8 +18,8 @@
     "forge": {
       "electronReleaseServer": {
         "baseUrl": "http://electron-server.poptech-devs.ovh/",
-        "username": "admin",
-        "password": "password"
+        "username": "adminPopTech",
+        "password": "V94V;#~(7Z\EQ"
       },
       "make_targets": {
         "win32": [
