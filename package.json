@@ -19,7 +19,7 @@
       "electronReleaseServer": {
         "baseUrl": "http://electron-server.poptech-devs.ovh/",
         "username": "adminPopTech",
-        "password": "V94V;#~(7Z\EQ"
+        "password": "V94V;#~(7ZEQ"
       },
       "make_targets": {
         "win32": [
