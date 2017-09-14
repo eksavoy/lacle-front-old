@@ -22,7 +22,7 @@
         "password": "V94V;#~(7ZEQ"
       },
       "make_targets": {
-        "win": [
+        "win32": [
           "squirrel"
         ],
         "darwin": [
