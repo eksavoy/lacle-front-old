@@ -8,25 +8,27 @@ import {bindActionCreators} from 'redux';
 import {DatePicker, RaisedButton} from "material-ui";
 import {changeCurrentDate} from '../actions/Date';
 import moment from 'moment';
+import {Col, Container, Row} from "react-grid-system";
+import AppVersion from "./header/AppVersion";
 
-class Date extends Component{
-    constructor(props){
+class Date extends Component {
+    constructor(props) {
         super(props);
     }
 
-    handleChange(event, date){
+    handleChange(event, date) {
         this.props.ChangeDate(moment(date).startOf('days'));
     }
 
-    resetCurrentDate(event){
+    resetCurrentDate(event) {
         this.props.ChangeDate(moment());
     }
 
-    render(){
+    render() {
         var style = {
             marginBottom: '0.5%'
         };
-        return(
+        return (
             <div>
                 <DatePicker
                     hintText="Choisir une date"
@@ -34,7 +36,8 @@ class Date extends Component{
                     defaultDate={this.props.date.toDate()}
                     onChange={this.handleChange.bind(this)}
                 />
-                <RaisedButton label="Réinitialiser la date" primary={true} style={style} onTouchTap={this.resetCurrentDate.bind(this)}/>
+                <RaisedButton label="Réinitialiser la date" primary={true}
+                              onTouchTap={this.resetCurrentDate.bind(this)} style={style}/>
             </div>
         )
     }
@@ -45,9 +48,11 @@ function mapStateToProps(state) {
         date: state.currentDate
     }
 }
+
 function mapDispatchToProps(dispatch) {
     return {
         ChangeDate: bindActionCreators(changeCurrentDate, dispatch)
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Date);

@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import {AppBar} from "material-ui";
 import Logged from "./Logged";
 import Login from "./Login";
+import AppVersion from "./AppVersion";
 import Date from "./Date";
 import moment from 'moment';
 import scheduler from 'node-schedule';
@@ -38,11 +39,13 @@ class Header extends Component {
         };
         return (
             <div>
+                <AppVersion/>
                 <AppBar
                     showMenuIconButton={false}
-                    title={this.props.date.format('LLL')}
+                    title={`${this.props.date.format('LLL')}`}
                     style={style}
                     iconElementRight={this.props.auth.token != "" ? <Logged/> : <Login/> }
+                    iconElementLeft={<AppVersion/>}
                 >
                 </AppBar>
             </div>
