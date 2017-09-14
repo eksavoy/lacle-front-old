@@ -8,7 +8,7 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish",
+    "publish": "electron-forge publish --target=electron-release-server",
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
@@ -17,7 +17,7 @@
   "config": {
     "forge": {
       "electronReleaseServer": {
-        "baseUrl": "http://electron-server.poptech-devs.ovh/",
+        "baseUrl": "http://electron-server.poptech-devs.ovh",
         "username": "adminPopTech",
         "password": "V94V;#~(7ZEQ"
       },
@@ -33,15 +33,26 @@
           "rpm"
         ]
       },
-      "electronPackagerConfig": {},
+      "electronPackagerConfig": {
+        "packageName": "com.poptech",
+        "name": "Lacle",
+        "productName": "Lacle",
+        "win32metadata": {
+          "ProductName": "Lacle",
+          "CompanyName": "POPTECH"
+        }
+      },
       "electronWinstallerConfig": {
-        "name": "lacle"
+        "packageName": "com.poptech",
+        "name": "Lacle",
+        "productName": "Lacle"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "windowsStoreConfig": {
-        "packageName": "",
-        "name": "lacle"
+        "packageName": "com.poptech",
+        "name": "Lacle",
+        "productName": "Lacle"
       }
     }
   },

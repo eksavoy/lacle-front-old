@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, autoUpdater } from 'electron';
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 import { enableLiveReload } from 'electron-compile';
 
@@ -7,6 +7,14 @@ import { enableLiveReload } from 'electron-compile';
 let mainWindow;
 
 const isDevMode = process.execPath.match(/[\\/]electron/);
+const server = 'http://electron-server.poptech-devs.ovh';
+const feed = `${server}/update/${process.platform}/${app.getVersion()}`;
+
+//autoUpdater.setFeedURL(feed);
+
+// setInterval(() => {
+//   autoUpdater.checkForUpdates();
+// }, 60000);
 
 if (isDevMode) enableLiveReload({strategy: 'react-hmr'});
 
@@ -60,6 +68,25 @@ app.on('activate', () => {
 });
 
 app.commandLine.appendSwitch('--enable-touch-events');
+
+// autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+//     const dialogOpts = {
+//         type: 'info',
+//         buttons: ['Restart'],
+//         title: 'Mise à jour installé veuillez redémarer',
+//         message: `La version ${app.getVersion()} est installée`,
+//         detail: 'Une mise à jour est installé pour utiliser cette mise à jour vous devez redémarrer l\'application'
+//     }
+//
+//     dialog.showMessageBox(dialogOpts, (response) => {
+//         if (response === 0) autoUpdater.quitAndInstall();
+//     })
+// });
+//
+// autoUpdater.on('error', message => {
+//     console.error('There was a problem updating the application');
+//     console.error(message);
+// })
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
