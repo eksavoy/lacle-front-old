@@ -1,7 +1,7 @@
 {
   "name": "lacle-front",
   "productName": "lacle-front",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
@@ -23,6 +23,9 @@
       },
       "make_targets": {
         "win32": [
+          "squirrel"
+        ],
+        "win64": [
           "squirrel"
         ],
         "darwin": [
