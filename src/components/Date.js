@@ -8,8 +8,6 @@ import {bindActionCreators} from 'redux';
 import {DatePicker, RaisedButton} from "material-ui";
 import {changeCurrentDate} from '../actions/Date';
 import moment from 'moment';
-import {Col, Container, Row} from "react-grid-system";
-import AppVersion from "./header/AppVersion";
 
 class Date extends Component {
     constructor(props) {
@@ -28,8 +26,11 @@ class Date extends Component {
         var style = {
             marginBottom: '0.5%'
         };
+        const styleDiv = {
+            marginLeft: '0.5%'
+        };
         return (
-            <div>
+            <div style={styleDiv}>
                 <DatePicker
                     hintText="Choisir une date"
                     autoOk={true}
