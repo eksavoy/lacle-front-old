@@ -21,6 +21,10 @@
         "username": "adminPopTech",
         "password": "V94V;#~(7ZEQ"
       },
+      "github_repository": {
+        "owner": "eksavoy",
+        "name": "lacle"
+      },
       "make_targets": {
         "win32": [
           "squirrel"
