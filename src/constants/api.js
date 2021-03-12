@@ -2,7 +2,7 @@
  * Created by romain on 25/03/2017.
  */
 
-export const API_URL = "http://lacle.humanitech.fr";
+export const API_URL = 'http://backend.lacledev.de-coster.fr';
 
 export const ROOM_PATH = 'room';
 export const COURSE_PATH = 'course';
