@@ -6,6 +6,8 @@ import Date from './components/Date';
 import NotificationSystem from "react-notification-system";
 import Board from "./components/content/Board";
 
+import './res/css/index.css'
+
 class App extends React.Component {
     constructor(props){
         super(props);
