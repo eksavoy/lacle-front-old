@@ -63,7 +63,7 @@
     "axios": "^0.16.1",
     "interact": "0.0.3",
     "material-ui": "^0.17.4",
-    "moment": "^2.18.1",
+    "moment": "^2.29.2",
     "node-schedule": "^1.2.1",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
